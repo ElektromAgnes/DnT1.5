@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dungeons and taverns cafe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" type="text/css" href="stylednt.css">
+<link rel="stylesheet" href="maincs.css">
+<style>
+.body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+<script>
+		function openMulti() {
+  if (document.querySelector(".selectWrapper").style.pointerEvents == "all") {
+    document.querySelector(".selectWrapper").style.opacity = 0;
+    document.querySelector(".selectWrapper").style.pointerEvents = "none";
+    resetAllMenus();
+  } else {
+    document.querySelector(".selectWrapper").style.opacity = 1;
+    document.querySelector(".selectWrapper").style.pointerEvents = "all";
+  }
+}
+function nextMenu(e) {
+  menuIndex = eval(event.target.parentNode.id.slice(-1));
+  document.querySelectorAll(".multiSelect")[menuIndex].style.transform =
+    "translateX(-100%)";
+  // document.querySelectorAll(".multiSelect")[menuIndex].style.clipPath = "polygon(0 0, 0 0, 0 100%, 0% 100%)";
+  document.querySelectorAll(".multiSelect")[menuIndex].style.clipPath =
+    "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)";
+  document.querySelectorAll(".multiSelect")[menuIndex + 1].style.transform =
+    "translateX(0)";
+  document.querySelectorAll(".multiSelect")[menuIndex + 1].style.clipPath =
+    "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
+}
+function prevMenu(e) {
+  menuIndex = eval(event.target.parentNode.id.slice(-1));
+  document.querySelectorAll(".multiSelect")[menuIndex].style.transform =
+    "translateX(100%)";
+  document.querySelectorAll(".multiSelect")[menuIndex].style.clipPath =
+    "polygon(0 0, 0 0, 0 100%, 0% 100%)";
+  document.querySelectorAll(".multiSelect")[menuIndex - 1].style.transform =
+    "translateX(0)";
+  document.querySelectorAll(".multiSelect")[menuIndex - 1].style.clipPath =
+    "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
+}
+function resetAllMenus() {
+  setTimeout(function () {
+    var x = document.getElementsByClassName("multiSelect");
+    var i;
+    for (i = 1; i < x.length; i++) {
+      x[i].style.transform = "translateX(100%)";
+      x[i].style.clipPath = "polygon(0 0, 0 0, 0 100%, 0% 100%)";
+    }
+    document.querySelectorAll(".multiSelect")[0].style.transform =
+      "translateX(0)";
+    document.querySelectorAll(".multiSelect")[0].style.clipPath =
+      "polygon(0 0, 100% 0, 100% 100%, 0% 100%)";
+  }, 300);
+}
+
+</script>
+</head>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s2">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s2">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s4">
+      <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
+    </div>
+	<div class="w3-col s2">
+      <a href="#game" class="w3-button w3-block w3-black">GAME</a>
+    </div>
+	<div class="w3-col s2">
+      <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">Open from 7am to 9pm</span>
+  </div>
+  <div class="w3-display-topmiddle w3-center">
+    <span class="w3-text-yellow" style="font-size:90px">   <br>Dungeons<br>and<br>Taverns</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white">12 Evergreen street, 5015, Narnia</span>
+  </div>
+  <img src="images/tavern.jpg" class="w3-image" style="width:100%">
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-red w3-grayscale  w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE CAFE</span></h5>
+    <p>This little, special cafe was made by miss Tamásffy Lilla in 2005. It was a regular cafe until Tamásffy Lilla started the Dungeons and Dragons events three years later, so now we have special Dungeons and Dragons events every week with various campaigns and Dungeon Masters. </p>
+    <p>In addition to the gaming experience or just for a pleasant conversation, you can taste our home-made coffees or any tasty food among the cozy medieval-style decorations.</p>
+    <div class="w3-panel w3-leftbar w3-brown">
+      <p><i>"The baristas here always throw critical success to coffee making check"</i></p>
+      <p>The local bard: Hanzo</p>
+    </div>
+    <img src="images/tavern2.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <p><strong>Opening hours:</strong> everyday from 7am to 9pm.</p>
+    <p><strong>Address:</strong> 12 Evergreen street, 5015, Narnia</p>
+  </div>
+</div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE MENU</span></h5>
+
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Food</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Drinks</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Bread Basket</h5>
+      <p class="w3-text-yellow">Assortment of fresh baked fruit breads and muffins 9.50 RON</p><br>
+
+      <h5>Honey Almond Granola with Fruits</h5>
+      <p class="w3-text-yellow">Natural cereal of honey toasted oats, raisins, almonds and dates 14.00 RON</p><br>
+
+      <h5>Belgian Waffle</h5>
+      <p class="w3-text-yellow">Vanilla flavored batter with malted flour 13.50 RON</p><br>
+
+      <h5>Scrambled eggs</h5>
+      <p class="w3-text-yellow">Scrambled eggs, roasted red pepper and garlic, with green onions 12.50 RON</p><br>
+
+      <h5>Druid's breakfast</h5>
+      <p class="w3-text-yellow">Blueberry pancakes with syrup, butter and lots of berries 15.50 RON</p>
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Coffee</h5>
+      <p class="w3-text-yellow">Regular coffee 3.50 RON</p><br>
+
+      <h5>Chocolato</h5>
+      <p class="w3-text-yellow">Chocolate espresso with milk 7.50 RON</p><br>
+
+      <h5>Healing potion</h5>
+      <p class="w3-text-yellow">Hot tea 6.00 RON</p><br>
+
+      <h5>Ice potion</h5>
+      <p class="w3-text-yellow">Hot tea, except not hot 6.00 RON</p><br>
+
+      <h5>The acolyte's new work (not tested)</h5>
+      <p class="w3-text-yellow">Coke, Sprite, Fanta, etc. 4.50 RON</p><br>
+
+	  <h5>Tavern's specialty</h5>
+      <p class="w3-text-yellow">Whiskey and coffee (Corretto) 9.00 RON</p>
+    </div>
+
+	<div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">CALCULATE YOUR ORDER</span></h5>
+    <select id="dropdown" multiple size="11">
+    <option value="9.5">Bread Basket</option>
+    <option value="14">Honey Almond Granola with Fruits</option>
+    <option value="13.5">Belgian Waffle</option>
+    <option value="12.5">Scrambled eggs</option>
+	<option value="15.5">Druid's breakfast</option>
+    <option value="3.5">Coffee</option>
+    <option value="7.5">Chocolato</option>
+    <option value="6">Healing potion</option>
+	<option value="6">Ice potion</option>
+    <option value="4.5">The acolyte's new work</option>
+    <option value="9">Tavern's specialty</option>
+  </select>
+  <button onclick="calculateSum()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateSum() {
+      var dropdown = document.getElementById("dropdown");
+      var selectedOptions = dropdown.selectedOptions;
+      var sum = 0;
+
+      for (var i = 0; i < selectedOptions.length; i++) {
+        sum += parseFloat(selectedOptions[i].value);
+      }
+
+      document.getElementById("result").innerText = "Sum: " + sum + " RON";
+    }
+  </script>
+
+    <img src="images/nomnom.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+  </div>
+</div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="game">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">GAME</span></h5>
+    <p>Our cafe organizes different D&D campaigns for both beginners and veteran players. If you haven't played yet, but are interested, there is a short explanation down below, which we recommend that you read the rule book or talk to a dungeon master. You can also apply for a campaign organized by us as a dungeon master, using the information in the blue frame. And for our favourite players the informations are in the purple frame.</p>
+    <p>We wish you a pleasant time and fun!</p>
+
+	<div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, '+');" id="myLink">
+        <div class="w3-col s3 tablink">+</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Races');">
+        <div class="w3-col s3 tablink">Races</div>
+      </a>
+	  <a href="javascript:void(0)" onclick="openMenu(event, 'Classes');">
+        <div class="w3-col s3 tablink">Classes</div>
+      </a>
+	  <a href="javascript:void(0)" onclick="openMenu(event, 'Combat');">
+        <div class="w3-col s3 tablink">Combat</div>
+      </a>
+    </div>
+
+    <div id="+" class="w3-container menu w3-padding-48 w3-card">
+      <h5>For new players</h5>
+      <p class="w3-text-yellow">First steps</p>
+    </div>
+
+    <div id="Races" class="w3-container menu w3-padding-48 w3-card">
+      <p class="w3-text-black">The first important thing in making a dnd charakter is choosing a race. There are a lot of good options in this magical world and we wrote down the basic options.</p><br>
+
+      <h5>Human</h5>
+      <p class="w3-text-yellow">+1 to All Ability Scores, Extra Language</p><br>
+
+      <h5>Dragonborn</h5>
+      <p class="w3-text-yellow">+2 Strenght, +1 Charisma, Draconic Ancestry, Breath Weapon, Damage Resistance</p><br>
+
+      <h5>Dwarf</h5>
+      <p class="w3-text-yellow">+2 Constitution, Darkvision, Dwarven Resilience, Dwarven Combat Training, Stonecunning</p><br>
+
+      <h5>Elf</h5>
+      <p class="w3-text-yellow">+2 Dexterity, Darkvision, Keen Senses, Fey Ancestry, Trance</p><br>
+
+	  <h5>Gnome</h5>
+      <p class="w3-text-yellow">+2 Intelligence, Darkvision, Gnome Cunning</p><br>
+
+	  <h5>Half-Elf</h5>
+      <p class="w3-text-yellow">+2 Charisma, +2 to two other Ability Scores, Darkvision, Fey Ancestry, Skill Versatility</p><br>
+
+	  <h5>Halfling</h5>
+      <p class="w3-text-yellow">+2 Dexterity, Lucky, Brave, Halfling Nimbleness</p><br>
+
+	  <h5>Half-Orc</h5>
+      <p class="w3-text-yellow">+2 Strenght, +1 Constitution, Darkvision, Menasing, Relentless Endurance, Savage Attacks</p><br>
+
+	  <h5>Tiefling</h5>
+      <p class="w3-text-yellow">+2 Charisma, +1 Intelligence, Darkvision, Hellish Resistance, Infernal Legacy</p>
+    </div>
+
+	<div id="Classes" class="w3-container menu w3-padding-48 w3-card">
+      <p class="w3-text-black">Choose your class wisely, and write your own backstory.</p><br>
+
+      <h5>Barbarian</h5>
+      <p class="w3-text-yellow">A fierce warrior who can enter a battle rage (Hit die:d12, Primary: Strenght, Saves: Strenght and Constitution)</p><br>
+
+      <h5>Bard</h5>
+      <p class="w3-text-yellow">An inspiring magician whose power echoes the music of creation (Hit die:d8, Primary: Charisma, Saves: Dexterity and Charisma)</p><br>
+
+      <h5>Cleric</h5>
+      <p class="w3-text-yellow">A priestly champion who wields divine magic in service of a higher power (Hit die:d8, Primary: Wisdom, Saves: Wisdom and Charisma)</p><br>
+
+      <h5>Druid</h5>
+      <p class="w3-text-yellow">A priest of the Old Faith, wielding the powers of nature and adopting animal forms (Hit die:d8, Primary: Wisdom, Saves: Intelligence and Wisdom)</p><br>
+
+	  <h5>Fighter</h5>
+      <p class="w3-text-yellow">A master of martial combat, skilled with a variety of weapons and armor (Hit die:d10, Primary: Strenght or Dexterity, Saves: Strenght and Constitution)</p><br>
+
+	  <h5>Monk</h5>
+      <p class="w3-text-yellow">A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection (Hit die:d8, Primary: Dexterity and Wisdom, Saves: Strenght and Dexterity)</p><br>
+
+	  <h5>Palladin</h5>
+      <p class="w3-text-yellow">A holy warior bound to a sacred oath (Hit die:d10, Primary: Strenght and Charisma, Saves: Wisdom and Charisma)</p><br>
+
+	  <h5>Ranger</h5>
+      <p class="w3-text-yellow">A warrior who combats threats on the edges of civilization (Hit die:d10, Primary: Dexterity and Wisdom, Saves: Strenght and Dexterity)</p><br>
+
+	  <h5>Rogue</h5>
+      <p class="w3-text-yellow">A scoundrel who uses stealth and trickery to overcome obstacles and enemies (Hit die:d8, Primary: Dexterity, Saves: Dexterity and Intelligence)</p><br>
+
+	  <h5>Sorcerer</h5>
+      <p class="w3-text-yellow">A spellcaster who draws on inherent magic from a gift or bloodline (Hit die:d6, Primary: Charisma, Saves: Constitution and Charisma)</p><br>
+
+	  <h5>Warlock</h5>
+      <p class="w3-text-yellow">A wielder of magic that is derived from a bargain with an extraplanar entity (Hit die:d8, Primary: Charisma, Saves: Wisdom and Charisma)</p><br>
+
+	  <h5>Wizard</h5>
+      <p class="w3-text-yellow">A scholarly magic-user capable of manipulating the structures of reality (Hit die:d6, Primary: Intelligence, Saves: Intelligence and Wisdom)</p>
+    </div>
+
+	 <div id="Combat" class="w3-container menu w3-padding-48 w3-card">
+      <p class="w3-text-black">If you don't know how the combat works you can watch <a href="https://www.youtube.com/watch?v=7tnrATiclg4" title="DnD Combat" target="_blank" class="w3-hover-text-yellow">this</a> video beafore you ask the Dungeon Master.</p>
+    </div>
+
+	<div class="w3-panel w3-leftbar w3-blue">
+      <p><strong>Free tables for new Dungeon Masters:</strong></p>
+	  <p>"Rich tavern" table /1st game table/ carefully decorated tavern atmosphere</p>
+	  <p>Free on: whole friday, until 12:30 on saturday, whole sunday</p><br>
+	  <p>"Eventful adventures" table /2nd game table/ a simle game table next to the windows</p>
+	  <p>Free on: until 17:30 on friday, until 17:00 on saturday, whole sunday</p><br>
+	  <p>"Old dungeon" table /3rd game table/ a mix of a dangerous dungeon and the basement</p>
+	  <p>Free on: until 16:30 on friday, whole saturday, until 16:30 on sunday</p><br>
+      <p><strong><a href="https://docs.google.com/forms/d/e/1FAIpQLSdIi_ZJH3oP9EYKPWdaYPuRp6CYsAzJnZMmaTFGyK-DdmcbLw/viewform" title="DM Application" target="_blank" class="w3-hover-text-black">Application here</a></strong></p>
+    </div>
+	<img src="images/tavern00.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+    <div class="w3-panel w3-leftbar w3-purple">
+	  <p><strong><a href="https://docs.google.com/forms/d/e/1FAIpQLScnBRjnPzqWJSb-jnOfl0gx9KNIMH1T4uAuD8ADNR38UUM6EQ/viewform" title=" Application" target="_blank" class="w3-hover-text-black">Campaigns</a></strong></p>
+	  <p>The circle of chaos: A weird, but exciting adventure in a fun world (and Reiwa's island references) arrenged by DM MÁgnes (electromagnet@gmail.com) at the 3rd game table, at every friday between 17:00-19:00.</p>
+	  <p>0/6 players
+      <p>Pirate RP: A classical pirate adventure story arrenged by DM Molnar (monksupremacy@gmail.com) at the 2nd game table next to the windows, every friday between 18:00-20:30.</p>
+	  <p>1/7 players
+      <p>Reiwa's island: A strange island on the middle of nowhere arrenged by DM Lilla (purplebug@gmail.com) at the 1st game table, every second saturday between 13:00-15:00.</p>
+	  <p>7/7 players (in progress)
+	  <p>Finnwater's legend: A mighty mission in the wonderful and exceptional world of Finnwater arrenged by DM Levente (meriththetrue@gmail.com) at the 1st game table, every saturday between 18:00-20:00.</p>
+	  <p>1/4 players
+	  <p>CSnD: A unique adventure in the wold of multiversums arrenged by DM Csula (imthedoctor@gmail.com) at the 2nd game table next to the windows, every saturday between 18:30-20:30.</p>
+	  <p>8/8 players (in progress)
+	  <p>Panopticon: A weirdcore and horror mix with a unique story arrenged by DM Molnar (monksupremacy@gmail.com) at the 3rd game table, every sunday between 17:00-19:30. </p>
+	  <p>6/6 players (in progress)
+    </div>
+  </div>
+</div>
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">WHERE TO FIND US</span></h5>
+    <p>Find us in Narnia, in the middle of the Evergreen street, next to the park (12 Evergreen street, 5015, Narnia).</p>
+    <img src="images/dnt03.png" class="w3-image" style="width:100%">
+    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+    <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+    <form action="mailto:coffeemaster@gmail.com" method="get" enctype="text/plain" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-black" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-red">w3.css</a></p>
+  <p> Images by <a href="https://www.bing.com/images/create?FORM=GDPGLP" title="MicrosoftBing" target="_blank" class="w3-hover-text-red">Bing AI</a> / Informations from <a href="https://www.dndbeyond.com/" title="D&D Beyond" target="_blank" class="w3-hover-text-red">D&D Beyond</a>, <a href="https://www.youtube.com/watch?v=7tnrATiclg4" title="YouTube" target="_blank" class="w3-hover-text-red">The Dungeoncast</a> / Application paper by <a href="https://www.google.com/forms/about/" title="Google Forms" target="_blank" class="w3-hover-text-red">Google Forms</a</p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-brown", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-brown";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

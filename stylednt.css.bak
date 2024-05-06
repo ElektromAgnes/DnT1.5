@@ -1,0 +1,26 @@
+
+
+body, html {
+	background-color: #660022;
+  height: 110%;
+  font-family: "Times New Roman", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: images/tavern.jpg;
+  min-height: 100%;
+}
+
+.menu {
+  display: none;
+}
+
+.title {
+	text-decoration: #ffff80
+}
+
+.header {
+	background-image: 'images/tavern.jpg';
+}
